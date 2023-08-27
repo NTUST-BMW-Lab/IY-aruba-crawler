@@ -127,6 +127,10 @@ In this case, you only need to do the step from 2 to 5.
 
 ## D. Demo video
 
+- How to run WiFi Management System:
 https://youtu.be/wY7TLPMICaM
+
+- Calibration tutorial with code:
+https://youtu.be/nkP6BUlv3U0
 
 
