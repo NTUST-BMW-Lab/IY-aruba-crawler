@@ -140,7 +140,7 @@ def main():
     client = MongoClient(mongoip,27017)
     db = client[database]
     col=db[collection]
-    #col.insert_many(data_json)
+    col.insert_many(data_json)
     print('Done')
 
 if __name__ == "__main__":

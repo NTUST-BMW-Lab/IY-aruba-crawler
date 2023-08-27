@@ -1,0 +1,33 @@
+\doxysection{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+py File Reference}
+\hypertarget{_edge_s_d_k___client___number_8py}{}\label{_edge_s_d_k___client___number_8py}\index{EdgeSDK\_Client\_Number.py@{EdgeSDK\_Client\_Number.py}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_edge_s_d_k___client___number_1_1_app}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+App}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_edge_s_d_k___client___number}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+myclient}} = pymongo.\+Mongo\+Client(\"{}mongodb\+://administrator\+:administrator@140.\+118.\+70.\+38\+:27017\"{})
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+mydb}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}{myclient}}\mbox{[}\"{}Wi\+Fi\+\_\+\+AP\+\_\+\+Data\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a4a897b54d5d587bb5ad9661c1a7bd781}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+mycol}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}{mydb}}\mbox{[}\"{}Controller\+\_\+4\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+data}} = pd.\+Data\+Frame(list(mycol.\+find().sort(\textquotesingle{}\+\_\+id\textquotesingle{},-\/1).limit(48)))
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a816b227ad0fda6f2b3847e2d0cf9838d}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+df}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}{data}}\mbox{[}\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}, \textquotesingle{}sta\+\_\+count\textquotesingle{}\mbox{]}\mbox{]}.sort\+\_\+values(by=\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}\mbox{]})
+\item 
+list \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+ap\+\_\+name}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a4fd92bf71aea3181d399536ef0ca0b49}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+no\+\_\+client}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+root}} = tkinter.\+Tk()
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_aaabc00ff3f4fa0ca156c3a4ef43a619d}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+main\+Window}} = \mbox{\hyperlink{class_edge_s_d_k___client___number_1_1_app}{App}}(\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}{root}})
+\end{DoxyCompactItemize}

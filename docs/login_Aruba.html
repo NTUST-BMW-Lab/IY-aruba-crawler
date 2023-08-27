@@ -1,1 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><title>Python: module login_Aruba</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body bgcolor="#f0f0f8">​<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading"><tr bgcolor="#7799ee"><td valign=bottom>&nbsp;<br><font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>login_Aruba</strong></big></big></font></td><td align=right valign=bottom><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cadministrator%5Cdesktop%5Crevisecode%5Ccontroller4%5Clogin_aruba.py">c:\users\administrator\desktop\revisecode\controller4\login_aruba.py</a></font></td></tr></table>    <p><tt>Created&nbsp;on&nbsp;Thu&nbsp;Nov&nbsp;&nbsp;3&nbsp;16:16:14&nbsp;2022<br>&nbsp;<br>@author:&nbsp;Hoai-Nam</tt></p><p><table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section"><tr bgcolor="#aa55cc"><td colspan=3 valign=bottom>&nbsp;<br><font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>    <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td><td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="requests.html">requests</a><br></td><td width="25%" valign=top><a href="warnings.html">warnings</a><br></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p><table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section"><tr bgcolor="#eeaa77"><td colspan=3 valign=bottom>&nbsp;<br><font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>    <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td><td width="100%"><dl><dt><a name="-login"><strong>login</strong></a>(ACCOUNT, PASSWORD, CONTROLLERURL)</dt></dl></td></tr></table><p><table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section"><tr bgcolor="#55aa55"><td colspan=3 valign=bottom>&nbsp;<br><font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>    <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td><td width="100%"><strong>Controller_url</strong> = CONTROLLER_URL<br><strong>account</strong> = ACCOUNT<br><strong>login_result</strong> = ('CONTROLLER_URL/screens/wms/wms.login', {'Content-Type': 'text/html', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleW...L, like Gecko) Chrome/96.0.4664.110 Safari/537.36'}, 'opcode=login&amp;url=%2Flogin.html&amp;needxml=0&amp;uid=apiUser&amp;passwd=x564#kdHrtNb563abcde', &lt;Response [200]&gt;, 'NTc1MGUwZDYtNDYwZC00ZTVjLWE1MWItNWM2')<br><strong>password</strong> = PASSWORD</td></tr></table></body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module login_Aruba</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>login_Aruba</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cadministrator%5Cdesktop%5Crevisecode%5Ccontroller4%5Clogin_aruba.py">c:\users\administrator\desktop\revisecode\controller4\login_aruba.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;Thu&nbsp;Nov&nbsp;&nbsp;3&nbsp;16:16:14&nbsp;2022<br>
+&nbsp;<br>
+@author:&nbsp;Hoai-Nam</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-login"><strong>login</strong></a>(ACCOUNT, PASSWORD, CONTROLLERURL)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Controller_url</strong> = 'https://140.118.151.248:4343'<br>
+<strong>account</strong> = 'apiUser'<br>
+<strong>login_result</strong> = ('https://140.118.151.248:4343/screens/wms/wms.login', {'Content-Type': 'text/html', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleW...L, like Gecko) Chrome/96.0.4664.110 Safari/537.36'}, 'opcode=login&amp;url=%2Flogin.html&amp;needxml=0&amp;uid=apiUser&amp;passwd=x564#kdHrtNb563abcde', &lt;Response [200]&gt;, 'NTc1MGUwZDYtNDYwZC00ZTVjLWE1MWItNWM2')<br>
+<strong>password</strong> = 'x564#kdHrtNb563abcde'</td></tr></table>
+</body></html>

@@ -16,7 +16,8 @@ RSSIIY
 |__ docs
 |  |__ (pydocs files)
 |  |__ databases.png
-|  |__ system_architecture.png 
+|  |__ system_architecture.png
+|  |__ dashboard_development.md
 |__ test
 |  |__ Controller4_ipynb # Controller4 test results on Jupiter Notebook
 |  |__ Positioning_ipynb # Indoor positioning test results on Jupiter Notebook
@@ -24,8 +25,7 @@ RSSIIY
 |__ EdgeSDK_AP_Coordinate.py # Connect interfering/rogue APs coordinate axis (x, y) to WISE-PaaS DataHub
 |__ Trilateration.py # Trilateration alrogithm
 |__ Trilaterationipynb # Trilateration test results on Jupiter Notebook
-|__ dashboard_development.md # Show how to develop the dashboard
-|__ README.md # Show how to run the code to retrive and store data in MongoDB
+|__ README.md
 
 ```
 
@@ -35,7 +35,8 @@ RSSIIY
 
 - From Window, choose Remote Desktop Connection
 - Enter Data Center IP address, username and password to connect to the server (Contact Victor to get the IP address, username and password).
-![1](https://github.com/nguyennam2010/RSSI4/assets/102983698/afa9a8e2-de01-4efc-a584-21cb8419e8c0)
+![1](https://github.com/nguyennam2010/RSSIIY/assets/102983698/d2fd531e-75cf-47fd-8805-14296482c35c)
+
 
 ### Connect to MongoDB databases server
 
@@ -49,17 +50,20 @@ mongod --bind_ip_all
 ```
 to listen to outside ip
 
-![2](https://github.com/nguyennam2010/RSSI4/assets/102983698/7b27766f-b1c4-4cf8-9141-782b28cb4e3a)
+![2](https://github.com/nguyennam2010/RSSIIY/assets/102983698/3e1ce288-c899-4d2f-b9dd-15753de21dad)
+
 
 - Open Robo3T. We can now connect to MongoDB databases server
 
-![3](https://github.com/nguyennam2010/RSSI4/assets/102983698/c16d77cf-8988-490b-8e12-f4bdecbadfc6)
+![3](https://github.com/nguyennam2010/RSSIIY/assets/102983698/0a9e6479-1e0c-4a64-bbd7-787715963edf)
+
 
 ## B. Run script 
-- Download config (.env) file and xlsx file (AP_name.xlsx, Coordinate.xlsx) from Google Drive and paste them to ```src/Controller4``` and ```src/Positioning```
+- Download config (.env) file and xlsx file from Google Drive
+- Put them in the same directory with Controller4 and Positioning
 - Open Spyder and run these 4 python scripts:
-  - Run ```src/Controller4/main.py``` to retrieve and store AP, User, Radio data to MongoDB
-  - Run ```src/Positioning/main.py``` for indoor positioning
+  - Run ```Controller4/main.py``` to retrieve and store AP, User, Radio data to MongoDB
+  - Run ```Positioning/main.py``` for indoor positioning
   - Run ```EdgeSDK_AP_Coordinate.py``` to connect interfering/rogue APs coordinate axis (x, y) to WISE-PaaS DataHub, in order to show rogue APs (x, y) axis to Dashboard
   - Run ```EdgeSDK_Client_Number.py``` to connect client number to WISE-PaaS DataHub, in order to show the number of clients in Dashboard.
 
@@ -76,7 +80,8 @@ to listen to outside ip
     - VM MongoDB URL （ex: mongodb://administrator:administrator@MONGOIP:27017)
     - MongoDB Database (ex: WiFi_AP_Data)
 
-![4](https://github.com/nguyennam2010/RSSI4/assets/102983698/29f45d39-a42a-477c-9c74-8646312e45a8)
+![4](https://github.com/nguyennam2010/RSSIIY/assets/102983698/f4cd6f4f-1f79-42cd-91cf-e16de26148e5)
+
 
 ### Display aruba AP data into Dashboard
 
@@ -93,30 +98,25 @@ db.Controller_4.aggregate([
 ```
 
 - The result shows the AP and their client numbers:
-![5](https://github.com/nguyennam2010/RSSI4/assets/102983698/869f9c4c-d155-4bf9-b78c-5a9aca5cc696)
-
+![5](https://github.com/nguyennam2010/RSSIIY/assets/102983698/3de019e1-b311-4947-a3d6-0f30d90eaf58)
 
 
 ### Run mongodb-grafana API on background
 
-1. Install foreverjs package (only install once)
-```
-npm install forever -g
-```
-2. [Login to GPU Server](https://hackmd.io/@jackychiang/SkZ-z-dU5).
-3. Go the the directory 
+1. Install foreverjs package (only install once) npm install forever -g
+2. Go the the directory 
 ```
 cd Desktop/mongodb-grafana/dist/server
 ```
-4. Run API in background
+3. Run API in background
 ```
 forever start mongodb-proxy.js
 ```
-5. Check API is running
+4. Check API is running
 ```
 forever list
 ```
-6. Check API from browser
+5. Check API from browser
 - http://you.ip.address.here:3333/
 - If successful it will shows:
 ```
@@ -127,6 +127,6 @@ In this case, you only need to do the step from 2 to 5.
 
 ## D. Demo video
 
-https://youtu.be/UGKWTLl_C20
+https://youtu.be/wY7TLPMICaM
 
 

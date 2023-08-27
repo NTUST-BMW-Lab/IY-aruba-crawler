@@ -1,0 +1,148 @@
+\chapter{Process and store data in Data Center\textquotesingle{}s Mongo\+DB}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Process and store data in Data Center\textquotesingle{}s MongoDB@{Process and store data in Data Center\textquotesingle{}s MongoDB}}
+\label{md__r_e_a_d_m_e_autotoc_md10}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md10}%
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Feature}{Feature}}\label{md__r_e_a_d_m_e_autotoc_md11}
+To retrieve, process, and store Wi\+Fi data in Mongo\+DB databases server in NTUST Data Center\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Requirement}{Requirement}}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Mongo\+DB \texorpdfstring{$>$}{>} 3.\+4.\+x 
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Directory}{Directory}}\label{md__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RSSIIY}
+\DoxyCodeLine{|\_\_\ src}
+\DoxyCodeLine{|\ \ |\_\_\ Controller4\ \#\ Crawling\ AP,\ User,\ and\ Radio\ data\ source\ code}
+\DoxyCodeLine{|\ \ |\_\_\ Positioning\ \#\ Indoor\ Positioning\ source\ code}
+\DoxyCodeLine{|\_\_\ data\ \#\ Leave\ it\ blank}
+\DoxyCodeLine{|\_\_\ docs}
+\DoxyCodeLine{|\ \ |\_\_\ (pydocs\ files)}
+\DoxyCodeLine{|\ \ |\_\_\ databases.png}
+\DoxyCodeLine{|\ \ |\_\_\ system\_architecture.png}
+\DoxyCodeLine{|\ \ |\_\_\ dashboard\_development.md}
+\DoxyCodeLine{|\_\_\ test}
+\DoxyCodeLine{|\ \ |\_\_\ Controller4\_ipynb\ \#\ Controller4\ test\ results\ on\ Jupiter\ Notebook}
+\DoxyCodeLine{|\ \ |\_\_\ Positioning\_ipynb\ \#\ Indoor\ positioning\ test\ results\ on\ Jupiter\ Notebook}
+\DoxyCodeLine{|\_\_\ EdgeSDK\_Client\_Number.py\ \#\ Connect\ client\ number\ to\ WISE-\/PaaS\ DataHub}
+\DoxyCodeLine{|\_\_\ EdgeSDK\_AP\_Coordinate.py\ \#\ Connect\ interfering/rogue\ APs\ coordinate\ axis\ (x,\ y)\ to\ WISE-\/PaaS\ DataHub}
+\DoxyCodeLine{|\_\_\ Trilateration.py\ \#\ Trilateration\ alrogithm}
+\DoxyCodeLine{|\_\_\ Trilaterationipynb\ \#\ Trilateration\ test\ results\ on\ Jupiter\ Notebook}
+\DoxyCodeLine{|\_\_\ README.md}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysection{\texorpdfstring{A. Access to Data Center\textquotesingle{}s Mongo\+DB databases server}{A. Access to Data Center's MongoDB databases server}}\label{md__r_e_a_d_m_e_autotoc_md14}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Access to Data Center Window server}{Access to Data Center Window server}}\label{md__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyItemize}
+\item From Window, choose Remote Desktop Connection
+\item Enter Data Center IP address, username and password to connect to the server (Contact Victor to get the IP address, username and password). 
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Connect to Mongo\+DB databases server}{Connect to MongoDB databases server}}\label{md__r_e_a_d_m_e_autotoc_md16}
+
+\begin{DoxyItemize}
+\item To turn on auth server, open cmd and cd to 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ C:\(\backslash\)Program\ Files\(\backslash\)MongoDB\(\backslash\)Server\(\backslash\)3.6\(\backslash\)bin}
+
+\end{DoxyCode}
+
+\item Enter\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mongod\ -\/-\/bind\_ip\_all}
+
+\end{DoxyCode}
+ to listen to outside ip
+\end{DoxyItemize}
+
+
+
+
+\begin{DoxyItemize}
+\item Open Robo3T. We can now connect to Mongo\+DB databases server
+\end{DoxyItemize}
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysection{\texorpdfstring{B. Run script}{B. Run script}}\label{md__r_e_a_d_m_e_autotoc_md17}
+
+\begin{DoxyItemize}
+\item Download config (.env) file and xlsx file from Google Drive
+\item Put them in the same directory with Controller4 and Positioning
+\item Open Spyder and run these 4 python scripts\+:
+\begin{DoxyItemize}
+\item Run {\ttfamily \doxylink{src_2_controller4_2main_8py}{Controller4/main.\+py}} to retrieve and store AP, User, Radio data to Mongo\+DB
+\item Run {\ttfamily \doxylink{src_2_positioning_2main_8py}{Positioning/main.\+py}} for indoor positioning
+\item Run {\ttfamily \doxylink{_edge_s_d_k___a_p___coordinate_8py}{Edge\+SDK\+\_\+\+AP\+\_\+\+Coordinate.\+py}} to connect interfering/rogue APs coordinate axis (x, y) to WISE-\/\+PaaS Data\+Hub, in order to show rogue APs (x, y) axis to Dashboard
+\item Run {\ttfamily \doxylink{_edge_s_d_k___client___number_8py}{Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+py}} to connect client number to WISE-\/\+PaaS Data\+Hub, in order to show the number of clients in Dashboard.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysection{\texorpdfstring{C. Query data from databases to WISE-\/\+PaaS}{C. Query data from databases to WISE-PaaS}}\label{md__r_e_a_d_m_e_autotoc_md18}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsection{\texorpdfstring{Add Mongo\+DB data source to Dashboard}{Add MongoDB data source to Dashboard}}\label{md__r_e_a_d_m_e_autotoc_md19}
+
+\begin{DoxyItemize}
+\item Open Dashboard -\/\texorpdfstring{$>$}{>} Setting -\/\texorpdfstring{$>$}{>} Data Source -\/\texorpdfstring{$>$}{>} Add data source
+\item Choose Mongo\+DB and enter\+:
+\begin{DoxyItemize}
+\item Datasource Name (ex： Aruba\+\_\+\+AP)
+\item Enable TLS
+\item API URL. We use GPU Server from BMW lab (ex\+: \href{http://GPUSERVERIP:3333}{\texttt{ http\+://\+GPUSERVERIP\+:3333}}).
+\begin{DoxyItemize}
+\item Info of our lab Server\+: \href{https://hackmd.io/@jackychiang/SkZ-z-dU5}{\texttt{ https\+://hackmd.\+io/@jackychiang/\+Sk\+Z-\/z-\/d\+U5}}
+\end{DoxyItemize}
+\item VM Mongo\+DB URL （ex\+: mongodb\+://administrator\+:administrator@\+MONGOIP\+:27017)
+\item Mongo\+DB Database (ex\+: Wi\+Fi\+\_\+\+AP\+\_\+\+Data)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md20}{}\doxysubsection{\texorpdfstring{Display aruba AP data into Dashboard}{Display aruba AP data into Dashboard}}\label{md__r_e_a_d_m_e_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Create new dashboard, query to desired data source (ex\+: Aruba\+\_\+\+AP)
+\item Insert appropriate aggregation. For example, we want to query AP data from Wi\+Fi\+\_\+\+AP\+\_\+\+Data\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.Controller\_4.aggregate([}
+\DoxyCodeLine{\{"{}\$sort"{}:\{"{}ts"{}:-\/1,\ "{}Client"{}:-\/1\}\},}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{\ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}AP\ Name"{}:"{}\$AP\ Name"{},\ "{}value"{}:"{}\$Client"{},"{}ts"{}:"{}\$ts"{}\}\},}
+\DoxyCodeLine{\{"{}\$limit"{}:48\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ])}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item The result shows the AP and their client numbers\+: 
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md21}{}\doxysubsection{\texorpdfstring{Run mongodb-\/grafana API on background}{Run mongodb-grafana API on background}}\label{md__r_e_a_d_m_e_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item Install foreverjs package (only install once) npm install forever -\/g
+\item Go the the directory 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ Desktop/mongodb-\/grafana/dist/server}
+
+\end{DoxyCode}
+
+\item Run API in background 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{forever\ start\ mongodb-\/proxy.js}
+
+\end{DoxyCode}
+
+\item Check API is running 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{forever\ list}
+
+\end{DoxyCode}
+
+\item Check API from browser
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item \href{http://you.ip.address.here:3333/}{\texttt{ http\+://you.\+ip.\+address.\+here\+:3333/}}
+\item If successful it will shows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{"{}message"{}:"{}Cannot\ read\ properties\ of\ undefined\ (reading\ 'url')"{}\}}
+
+\end{DoxyCode}
+ Sometimes, if GPU server shuts down due to power cutoff, you need to rerun the API. In this case, you only need to do the step from 2 to 5.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md22}{}\doxysection{\texorpdfstring{D. Demo video}{D. Demo video}}\label{md__r_e_a_d_m_e_autotoc_md22}
+\href{https://youtu.be/wY7TLPMICaM}{\texttt{ https\+://youtu.\+be/w\+Y7\+TLPMICaM}} 

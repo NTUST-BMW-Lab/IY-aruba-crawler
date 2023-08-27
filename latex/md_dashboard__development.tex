@@ -1,0 +1,169 @@
+\chapter{Dashboard Development}
+\hypertarget{md_dashboard__development}{}\label{md_dashboard__development}\index{Dashboard Development@{Dashboard Development}}
+\label{md_dashboard__development_autotoc_md0}%
+\Hypertarget{md_dashboard__development_autotoc_md0}%
+ After \href{https://github.com/nguyennam2010/RSSIIY/blob/main/README.md\#c-query-data-from-databases-to-wise-paas}{\texttt{ pushing Mongo\+DB data to Dashboard}}, this is how you develop the Dashboard.\hypertarget{md_dashboard__development_autotoc_md1}{}\doxysection{\texorpdfstring{Method}{Method}}\label{md_dashboard__development_autotoc_md1}
+Two main methods in Dashboard development\+: Direct (Mongo\+DB -\/ Dashboard) and indirect visualization (Mongo\+DB -\/ Data\+Hub -\/ SaaS Composer -\/ Dashboard).
+
+\hypertarget{md_dashboard__development_autotoc_md2}{}\doxysection{\texorpdfstring{Variables}{Variables}}\label{md_dashboard__development_autotoc_md2}
+Create variables for AP and floor.
+
+\hypertarget{md_dashboard__development_autotoc_md3}{}\doxysection{\texorpdfstring{AP information}{AP information}}\label{md_dashboard__development_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Query\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.Controller\_4.aggregate([}
+\DoxyCodeLine{\{"{}\$sort"{}:\{"{}ts"{}:-\/1,\ "{}Client"{}:-\/1\}\},}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{"{}AP\ Name"{}:"{}\$ap"{},\ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}\_id"{}:0,"{}AP\ Name"{}:"{}\$AP\ Name"{},\ "{}Client"{}:"{}\$Client"{},"{}IP\ Address"{}:"{}\$IP\ address"{},"{}MAC\ Address"{}:"{}\$MAC\ address"{},"{}Model"{}:"{}\$Model"{},"{}AP\ Group"{}:"{}\$AP\_Group"{},\ "{}TW\ Time"{}:"{}\$DatetimeStr"{}\}\},}
+\DoxyCodeLine{\{"{}\$limit"{}:1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ])}
+
+\end{DoxyCode}
+ Note\+: In this query, {\ttfamily Controller\+\_\+4} is the collection of the AP database, which named {\ttfamily Aruba\+\_\+\+AP}. The query is same as you query data in your Mongo\+DB.
+
+
+\begin{DoxyItemize}
+\item Result\+:
+\end{DoxyItemize}
+
+\hypertarget{md_dashboard__development_autotoc_md4}{}\doxysection{\texorpdfstring{Client number}{Client number}}\label{md_dashboard__development_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Query (2.\+4 GHz)\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.AP\_List.aggregate([}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{"{}ap\_name"{}:"{}\$ap"{},"{}radio\_band"{}:\ 0,\ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{},\ "{}\$lt"{}:"{}\$to"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}\_id"{}:0,\ "{}name"{}:"{}2.4\ GHz"{},\ "{}ap\_name"{}:"{}\$ap"{},\ "{}value"{}:"{}\$sta\_count"{},"{}ts"{}:"{}\$ts"{}\}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ])}
+
+\end{DoxyCode}
+ Note\+: You need to Add Query to query 5GHz, then it can show in the map together as the pic below.
+
+
+\begin{DoxyItemize}
+\item Result\+:
+\end{DoxyItemize}
+
+\hypertarget{md_dashboard__development_autotoc_md5}{}\doxysection{\texorpdfstring{Noise floor}{Noise floor}}\label{md_dashboard__development_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Query (5 GHz)\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.AP\_List.aggregate([}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{"{}ap\_name"{}:"{}IY\_1F\_AP01"{},"{}radio\_band"{}:1,\ \ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{},\ "{}\$lt"{}:"{}\$to"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}\_id"{}:0,"{}name"{}:"{}5\ GHz"{},\ "{}value"{}:"{}\$noise\_floor"{},"{}ts"{}:"{}\$ts"{}\}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ])}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Result\+:
+\end{DoxyItemize}
+
+\hypertarget{md_dashboard__development_autotoc_md6}{}\doxysection{\texorpdfstring{Channel utilization}{Channel utilization}}\label{md_dashboard__development_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Query (2.\+4 GHz -\/ tx time)\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.AP\_List.aggregate([}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{"{}ap\_name"{}:"{}\$ap"{},"{}radio\_band"{}:\ 0,\ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{},\ "{}\$lt"{}:"{}\$to"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}\_id"{}:0,\ "{}name"{}:"{}tx\ time"{},\ "{}value"{}:"{}\$tx\_time"{},"{}ts"{}:"{}\$ts"{}\}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ])}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item Result\+:
+\end{DoxyItemize}
+
+\hypertarget{md_dashboard__development_autotoc_md7}{}\doxysection{\texorpdfstring{Client information}{Client information}}\label{md_dashboard__development_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Query\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{db.Controller\_4.aggregate([}
+\DoxyCodeLine{\{"{}\$sort"{}:\{"{}ts"{}:-\/1,\ "{}Client"{}:-\/1\}\},}
+\DoxyCodeLine{\{"{}\$match"{}:\ \{"{}ap\_name"{}:"{}\$ap"{},\ "{}ts"{}:\{\ "{}\$gte"{}\ :\ "{}\$from"{},\ "{}\$lt"{}:"{}\$to"{}\}\}\},\ }
+\DoxyCodeLine{\{"{}\$project"{}:\ \{"{}\_id"{}:0,"{}Client\ User\ Name"{}:"{}\$client\_user\_name"{},\ "{}MAC\ Address"{}:"{}\$sta\_mac\_address"{},"{}IP\ Address"{}:"{}\$client\_ip\_address"{},"{}OS"{}:"{}\$client\_dev\_type"{},"{}WLAN"{}:"{}\$ssid"{},"{}AP\ Name"{}:"{}\$ap"{},"{}Client\ Health"{}:"{}\$client\_health"{},\ "{}Radio\ Band"{}:"{}\$radio\_band"{},"{}Channel"{}:"{}\$channel"{},"{}SNR"{}:"{}\$snr"{},"{}TW\ Time"{}:"{}\$DatetimeStr"{}\}\},}
+\DoxyCodeLine{\{"{}\$limit"{}:100\}}
+\DoxyCodeLine{])}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Result\+:
+\end{DoxyItemize}
+
+\hypertarget{md_dashboard__development_autotoc_md8}{}\doxysection{\texorpdfstring{Client map}{Client map}}\label{md_dashboard__development_autotoc_md8}
+To visualize as map in Dashboard, you need to push your data to Data\+Hub.
+
+First, you need to download SDK code from \href{https://docs.wise-paas.advantech.com/en/Guides_and_API_References/Data_Acquisition/DataHub/py_Edge_SDK_Manual/v1.1.7}{\texttt{ WISE-\/\+PaaS documentation}}
+
+Their code for random data generation\+:
+
+
+
+You need to adjust the above code to connect to Data\+Hub. For example, push AP name and Client number from Mongo\+DB\+:
+
+
+
+Then you can push the data to Data\+Hub follow this video\+: \href{https://www.youtube.com/watch?v=IP46vcWuHhY}{\texttt{ https\+://www.\+youtube.\+com/watch?v=\+IP46vc\+Wu\+HhY}}
+
+Now you edit Composer to bind the data to the map. Create appropriate assets and bind the corresponding data from Data\+Hub\+:
+
+
+
+Use advanced setting to change color of the Client nodes\+:
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function(value,\ oldValue,\ option)\{\ }
+\DoxyCodeLine{\ \ \ \ if(value>=10)\ return\ "{}symbols/builtIn/large\ transformer/red\ light.json"{};}
+\DoxyCodeLine{\ \ \ \ if(value<10\ \&\ value>2)\ return\ "{}symbols/builtIn/large\ transformer/yellow\ light.json"{};}
+\DoxyCodeLine{\ \ \ \ if(value<=2)\ \{value=0;return\ "{}symbols/builtIn/large\ transformer/green\ light.json"{};\}}
+\DoxyCodeLine{\ \ \ \ else\ return\ "{}symbols/builtIn/large\ transformer/green\ light.json"{};\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Now the map can show number of clients and color corresponding to the data.
+\begin{DoxyItemize}
+\item Green light\+: \texorpdfstring{$<$}{<} 2 users (clients)
+\item Yellow light\+: 2 \texorpdfstring{$<$}{<} users \texorpdfstring{$<$}{<} 10
+\item Red light\+: \texorpdfstring{$>$}{>} 10 users
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+In Dashboard, create a panel, choose SaaS Composer-\/\+Viewer and choose the SaaS Composer directory to the file setting\+:
+
+\hypertarget{md_dashboard__development_autotoc_md9}{}\doxysection{\texorpdfstring{Interference map}{Interference map}}\label{md_dashboard__development_autotoc_md9}
+Same as Client map, you import the IY building map to SaaS Composer and bind their (x, y) variables.
+
+
+
+In Dashboard, create a panel for Interference Map and choose the directory same as Client Map. 

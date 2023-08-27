@@ -41,7 +41,7 @@ def main():
     ROGUEAPDB = os.getenv('ROGUEAPDB')
     ROGUEAPCOLLECTION = os.getenv('ROGUEAPCOLLECTION')
     df = pd.read_excel('AP_name.xlsx')
-    print(username, 'aaa')
+    print('Start RSSI Processing...')
     # =============================================================================
     # Import Aruba AP information from excel
 

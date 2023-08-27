@@ -15,6 +15,9 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 warnings.filterwarnings("ignore")
 
+# Load variables from .env file
+load_dotenv()
+
 def main():
     # =============================================================================
     # Calculate Taiwan time (GMT +8)
@@ -28,7 +31,7 @@ def main():
     ROGUEAPDB = os.environ.get("ROGUEAPDB") # RogueAP database
     ROGUEAPCOLLECTION = os.environ.get("ROGUEAPCOLLECTION") # Rogue AP collection
     COORDINATECOLLECTION = os.environ.get("COORDINATECOLLECTION") # Coordinate collection
-
+    print('Start Positioning...')
     # Create monitoring APs coordinate dictionary from xlsx
 
     df = pd.read_excel('Coordinate.xlsx')
@@ -191,8 +194,9 @@ def main():
     db = client[ROGUEAPDB]
     col=db[COORDINATECOLLECTION]
     # col.delete_many({"Datetime": {"$lt": previous_day}})
-    # col.insert_many(data_json)
+    col.insert_many(data_json)
     print('Done!')
+    print(data_json[0])
     
 if __name__ == "__main__":
     main()

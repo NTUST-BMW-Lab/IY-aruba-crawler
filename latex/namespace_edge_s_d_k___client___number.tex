@@ -1,0 +1,85 @@
+\doxysection{Edge\+SDK\+\_\+\+Client\+\_\+\+Number Namespace Reference}
+\hypertarget{namespace_edge_s_d_k___client___number}{}\label{namespace_edge_s_d_k___client___number}\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_edge_s_d_k___client___number_1_1_app}{App}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}{myclient}} = pymongo.\+Mongo\+Client(\"{}mongodb\+://administrator\+:administrator@140.\+118.\+70.\+38\+:27017\"{})
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}{mydb}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}{myclient}}\mbox{[}\"{}Wi\+Fi\+\_\+\+AP\+\_\+\+Data\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a4a897b54d5d587bb5ad9661c1a7bd781}{mycol}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}{mydb}}\mbox{[}\"{}Controller\+\_\+4\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}{data}} = pd.\+Data\+Frame(list(mycol.\+find().sort(\textquotesingle{}\+\_\+id\textquotesingle{},-\/1).limit(48)))
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a816b227ad0fda6f2b3847e2d0cf9838d}{df}} = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}{data}}\mbox{[}\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}, \textquotesingle{}sta\+\_\+count\textquotesingle{}\mbox{]}\mbox{]}.sort\+\_\+values(by=\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}\mbox{]})
+\item 
+list \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a4fd92bf71aea3181d399536ef0ca0b49}{no\+\_\+client}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}{root}} = tkinter.\+Tk()
+\item 
+\mbox{\hyperlink{namespace_edge_s_d_k___client___number_aaabc00ff3f4fa0ca156c3a4ef43a619d}{main\+Window}} = \mbox{\hyperlink{class_edge_s_d_k___client___number_1_1_app}{App}}(\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}{root}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}\label{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!ap\_name@{ap\_name}}
+\index{ap\_name@{ap\_name}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{ap\_name}{ap\_name}}
+{\footnotesize\ttfamily list Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+ap\+\_\+name = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}\label{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!data@{data}}
+\index{data@{data}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+data = pd.\+Data\+Frame(list(mycol.\+find().sort(\textquotesingle{}\+\_\+id\textquotesingle{},-\/1).limit(48)))}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a816b227ad0fda6f2b3847e2d0cf9838d}\label{namespace_edge_s_d_k___client___number_a816b227ad0fda6f2b3847e2d0cf9838d} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!df@{df}}
+\index{df@{df}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{df}{df}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+df = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a79dd9c6e6d9f8ece476cf9795853ba21}{data}}\mbox{[}\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}, \textquotesingle{}sta\+\_\+count\textquotesingle{}\mbox{]}\mbox{]}.sort\+\_\+values(by=\mbox{[}\textquotesingle{}\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a9316ba31903486127b6586857c9cdf9c}{ap\+\_\+name}}\textquotesingle{}\mbox{]})}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_aaabc00ff3f4fa0ca156c3a4ef43a619d}\label{namespace_edge_s_d_k___client___number_aaabc00ff3f4fa0ca156c3a4ef43a619d} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!mainWindow@{mainWindow}}
+\index{mainWindow@{mainWindow}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{mainWindow}{mainWindow}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+main\+Window = \mbox{\hyperlink{class_edge_s_d_k___client___number_1_1_app}{App}}(\mbox{\hyperlink{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}{root}})}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}\label{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!myclient@{myclient}}
+\index{myclient@{myclient}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{myclient}{myclient}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+myclient = pymongo.\+Mongo\+Client(\"{}mongodb\+://administrator\+:administrator@140.\+118.\+70.\+38\+:27017\"{})}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a4a897b54d5d587bb5ad9661c1a7bd781}\label{namespace_edge_s_d_k___client___number_a4a897b54d5d587bb5ad9661c1a7bd781} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!mycol@{mycol}}
+\index{mycol@{mycol}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{mycol}{mycol}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+mycol = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}{mydb}}\mbox{[}\"{}Controller\+\_\+4\"{}\mbox{]}}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893}\label{namespace_edge_s_d_k___client___number_afdf610d95dc3817a8655ebc5beb3a893} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!mydb@{mydb}}
+\index{mydb@{mydb}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{mydb}{mydb}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+mydb = \mbox{\hyperlink{namespace_edge_s_d_k___client___number_a36715f359b6dfe99eaccb216960d279a}{myclient}}\mbox{[}\"{}Wi\+Fi\+\_\+\+AP\+\_\+\+Data\"{}\mbox{]}}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a4fd92bf71aea3181d399536ef0ca0b49}\label{namespace_edge_s_d_k___client___number_a4fd92bf71aea3181d399536ef0ca0b49} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!no\_client@{no\_client}}
+\index{no\_client@{no\_client}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{no\_client}{no\_client}}
+{\footnotesize\ttfamily list Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+no\+\_\+client = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59}\label{namespace_edge_s_d_k___client___number_a95b4559efdafd49236abf98aa52e1d59} 
+\index{EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}!root@{root}}
+\index{root@{root}!EdgeSDK\_Client\_Number@{EdgeSDK\_Client\_Number}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily Edge\+SDK\+\_\+\+Client\+\_\+\+Number.\+root = tkinter.\+Tk()}
+
