@@ -20,9 +20,9 @@ def show_command(aosip,uidaruba,command):
         
     return AOS_response
 
-username='apiUser' # Aruba controller username
-password='x564#kdHrtNb563abcde' # Aruba controller password
-aosip = '140.118.151.248'
+username=os.environ.get("ACCOUNT") # Aruba controller username
+password=os.environ.get("PASSWORD") # Aruba controller password
+aosip = os.environ.get("CONTROLLER_URL") # Aruba controller URL
 uidaruba = Authentication.authentication(username,password, aosip)
 command = 'show+time-range'
 
