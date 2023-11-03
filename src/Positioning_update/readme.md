@@ -16,8 +16,7 @@ So now you can just change the above info to retrieve RSSI from another building
 ![image](https://github.com/NTUST-BMW-Lab/IY-aruba-crawler/assets/102983698/bfdca4fd-6bfe-4ba4-901f-f64eb67ca029)
 
 Then you can get D1 RSSI data like this:
-
-![image](https://github.com/NTUST-BMW-Lab/IY-aruba-crawler/assets/102983698/e98bad89-aa5e-4c73-8892-cb7433538fd7)
+![image](https://github.com/NTUST-BMW-Lab/IY-aruba-crawler/assets/102983698/d8593596-ccea-4ebf-bb74-702c24403f76)
 
 Please let me know if you want to get the username, password, IP address for IY or D1 building in "RSSI_retrieve".
 I can present a demo video if needed.
