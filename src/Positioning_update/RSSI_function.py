@@ -1,9 +1,4 @@
-import requests
 import pandas as pd 
-import warnings
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-warnings.filterwarnings("ignore")
 import requests
 from datetime import timedelta
 from datetime import datetime, timedelta
@@ -11,11 +6,22 @@ import warnings
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 warnings.filterwarnings("ignore")
-
+"""
+RSSI Main Script
+Author: Hoai-Nam Nguyen
+"""
 # =============================================================================
 
 # Datetime calculation (convert to Taiwan time GMT +8)
 def calculate_taiwan_time():
+    """
+    Calculate the current time in Taiwan (GMT +8).
+    Returns:
+        ts (datetime): Current time in GMT.
+        ts_tw_str (str): Current time in Taiwan in string format.
+        ts_tw (datetime): Current time in Taiwan.
+    """
+        
     from datetime import timedelta
     from datetime import datetime, timedelta
     # =============================================================================
@@ -34,7 +40,16 @@ def calculate_taiwan_time():
 
 #Get the token to access vMM information  -- via API
 def authentication(username,password,vMM_aosip):
+    """
+    Get the token to access vMM information via API.
     
+    Args:
+        username (str): Username for authentication.
+        password (str): Password for authentication.
+        vMM_aosip (str): vMM IP for access.
+    Returns:
+        uidaruba (str): Token for accessing vMM information.
+    """
     url_login = "https://" + vMM_aosip + ":4343/v1/api/login"
     payload_login = 'username=' + username + '&password=' + password
     headers = {'Content-Type': 'application/json'}
@@ -50,6 +65,16 @@ def authentication(username,password,vMM_aosip):
 
 #show command
 def show_command(vMM_aosip,uidaruba,command):
+    """
+    Execute a show command.
+    
+    Args:
+        vMM_aosip (str): vMM IP for access.
+        uidaruba (str): Token for accessing vMM information.
+        command (str): Command to be executed.
+    Returns:
+        AOS_response: Response of the executed command.
+    """
     url_login = 'https://' + vMM_aosip + ':4343/v1/configuration/showcommand?command='+command+'&UIDARUBA=' + uidaruba
     aoscookie = dict(SESSION = uidaruba)
     AOS_response = requests.get(url_login, cookies=aoscookie, verify=False)
@@ -65,11 +90,27 @@ def show_command(vMM_aosip,uidaruba,command):
 
 # Extracting floor names from AP dictionary
 def get_floor_list(ref_aps_dict_all):
+    """
+    Extract the floor names from the AP dictionary.
+    
+    Args:
+        ref_aps_dict_all: Dictionary containing AP information.
+    Returns:
+        f_name: List of floor names.
+    """
     f_name = list(ref_aps_dict_all.keys()) 
     return f_name
 
 # Exacting AP names from AP dictionary
 def get_AP_name(ref_aps_dict_all):
+    """
+    Extract the AP names from the AP dictionary.
+    
+    Args:
+        ref_aps_dict_all: Dictionary containing AP information.
+    Returns:
+        AP_name: List of AP names.
+    """
     AP_name = []
     for floor, aps in ref_aps_dict_all.items():
         AP_name.append(list(aps.keys()))
@@ -77,6 +118,15 @@ def get_AP_name(ref_aps_dict_all):
 
 # Extract APs coordinate from AP dictionary
 def get_AP_coords(ref_aps_dict_all, max_ap_per_floor):
+    """
+    Extract the coordinates of APs from the AP dictionary.
+    
+    Args:
+        ref_aps_dict_all: Dictionary containing AP information.
+        max_ap_per_floor: Maximum number of APs per floor.
+    Returns:
+        AP_coords: Dictionary containing AP coordinates for each floor.
+    """
     AP_coords = {}
     for floor, aps in ref_aps_dict_all.items():
         AP_coords[floor] = []
@@ -87,7 +137,19 @@ def get_AP_coords(ref_aps_dict_all, max_ap_per_floor):
     return AP_coords
 
 # Retrieve RSSI for reference APs in each floor
-def ref_rss_retrieve(AP_name, f_name, vMM_aosip, token, building):  
+def ref_rss_retrieve(AP_name, f_name, vMM_aosip, token, building): 
+    """
+    Retrieve RSSI for reference APs in each floor.
+    
+    Args:
+        AP_name: List of AP names.
+        f_name: List of floor names.
+        vMM_aosip (str): vMM IP for access.
+        token (str): Token for accessing vMM information.
+        building (str): Building name.
+    Returns:
+        ap_all: Dataframe containing RSSI information for reference APs.
+    """
     df = {} # Initiate RSSI dataframe for a floor
 
     for ap in AP_name:
@@ -148,6 +210,18 @@ def ref_rss_retrieve(AP_name, f_name, vMM_aosip, token, building):
 
 # Loop to retrieve RSSI for reference APs in every floor
 def ref_retrieve_all(AP_name, f_name, vMM_aosip, token, building):
+    """
+    Loop to retrieve RSSI for reference APs in every floor.
+    
+    Args:
+        AP_name: List of AP names.
+        f_name: List of floor names.
+        vMM_aosip (str): vMM IP for access.
+        token (str): Token for accessing vMM information.
+        building (str): Building name.
+    Returns:
+        dfa: Dataframe containing RSSI information for reference APs.
+    """
     dfa = pd.DataFrame()
 
     for i in range(len(f_name)):
@@ -159,7 +233,20 @@ def ref_retrieve_all(AP_name, f_name, vMM_aosip, token, building):
     return dfa
 
 # Retrieve RSSI for reference APs in each floor
-def rogue_rss_retrieve(AP_name, f_name, vMM_aosip, token, building, threshold):  
+def rogue_rss_retrieve(AP_name, f_name, vMM_aosip, token, building, threshold): 
+    """
+    Retrieve RSSI for rogue APs in each floor.
+    
+    Args:
+        AP_name: List of AP names.
+        f_name: List of floor names.
+        vMM_aosip (str): vMM IP for access.
+        token (str): Token for accessing vMM information.
+        building (str): Building name.
+        threshold (int): Threshold value for RSSI.
+    Returns:
+        ap_all: Dataframe containing RSSI information for rogue APs.
+    """
     df = {} # Initiate RSSI dataframe for a floor
     
     for ap in AP_name:
@@ -214,6 +301,19 @@ def rogue_rss_retrieve(AP_name, f_name, vMM_aosip, token, building, threshold):
 
 # Loop to retrieve RSSI for rogue APs in every floor
 def rogue_retrieve_all(AP_name, f_name, vMM_aosip, token, building, threshold):
+    """
+    Loop to retrieve RSSI for rogue APs in every floor.
+    
+    Args:
+        AP_name: List of AP names.
+        f_name: List of floor names.
+        vMM_aosip (str): vMM IP for access.
+        token (str): Token for accessing vMM information.
+        building (str): Building name.
+        threshold (int): Threshold value for RSSI.
+    Returns:
+        dfa: Dataframe containing RSSI information for rogue APs.
+    """
     dfa = pd.DataFrame()
 
     for i in range(len(f_name)):
