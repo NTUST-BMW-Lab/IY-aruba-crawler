@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>RSSI_function module &#8212; Positioning_update 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=cb25574f" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=f6245a2f"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RSSI_retrieve module" href="RSSI_retrieve.html" />
+    <link rel="prev" title="Positioning_update" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-RSSI_function">
+<span id="rssi-function-module"></span><h1>RSSI_function module<a class="headerlink" href="#module-RSSI_function" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.authentication">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">authentication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the token to access vMM information via API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<em>str</em>) – Username for authentication.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – Password for authentication.</p></li>
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Token for accessing vMM information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>uidaruba (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.calculate_taiwan_time">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">calculate_taiwan_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.calculate_taiwan_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the current time in Taiwan (GMT +8).
+:returns: Current time in GMT.</p>
+<blockquote>
+<div><p>ts_tw_str (str): Current time in Taiwan in string format.
+ts_tw (datetime): Current time in Taiwan.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ts (datetime)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.get_AP_coords">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">get_AP_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_aps_dict_all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_ap_per_floor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.get_AP_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the coordinates of APs from the AP dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ref_aps_dict_all</strong> – Dictionary containing AP information.</p></li>
+<li><p><strong>max_ap_per_floor</strong> – Maximum number of APs per floor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing AP coordinates for each floor.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AP_coords</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.get_AP_name">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">get_AP_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_aps_dict_all</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.get_AP_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the AP names from the AP dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ref_aps_dict_all</strong> – Dictionary containing AP information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of AP names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AP_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.get_floor_list">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">get_floor_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_aps_dict_all</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.get_floor_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the floor names from the AP dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ref_aps_dict_all</strong> – Dictionary containing AP information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of floor names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>f_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.ref_retrieve_all">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">ref_retrieve_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AP_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">building</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.ref_retrieve_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop to retrieve RSSI for reference APs in every floor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AP_name</strong> – List of AP names.</p></li>
+<li><p><strong>f_name</strong> – List of floor names.</p></li>
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – Token for accessing vMM information.</p></li>
+<li><p><strong>building</strong> (<em>str</em>) – Building name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataframe containing RSSI information for reference APs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dfa</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.ref_rss_retrieve">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">ref_rss_retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AP_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">building</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.ref_rss_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve RSSI for reference APs in each floor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AP_name</strong> – List of AP names.</p></li>
+<li><p><strong>f_name</strong> – List of floor names.</p></li>
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – Token for accessing vMM information.</p></li>
+<li><p><strong>building</strong> (<em>str</em>) – Building name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataframe containing RSSI information for reference APs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ap_all</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.rogue_retrieve_all">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">rogue_retrieve_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AP_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">building</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.rogue_retrieve_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop to retrieve RSSI for rogue APs in every floor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AP_name</strong> – List of AP names.</p></li>
+<li><p><strong>f_name</strong> – List of floor names.</p></li>
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – Token for accessing vMM information.</p></li>
+<li><p><strong>building</strong> (<em>str</em>) – Building name.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em>) – Threshold value for RSSI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataframe containing RSSI information for rogue APs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dfa</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.rogue_rss_retrieve">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">rogue_rss_retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AP_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">building</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.rogue_rss_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve RSSI for rogue APs in each floor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AP_name</strong> – List of AP names.</p></li>
+<li><p><strong>f_name</strong> – List of floor names.</p></li>
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – Token for accessing vMM information.</p></li>
+<li><p><strong>building</strong> (<em>str</em>) – Building name.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em>) – Threshold value for RSSI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataframe containing RSSI information for rogue APs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ap_all</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RSSI_function.show_command">
+<span class="sig-prename descclassname"><span class="pre">RSSI_function.</span></span><span class="sig-name descname"><span class="pre">show_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vMM_aosip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uidaruba</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RSSI_function.show_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a show command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vMM_aosip</strong> (<em>str</em>) – vMM IP for access.</p></li>
+<li><p><strong>uidaruba</strong> (<em>str</em>) – Token for accessing vMM information.</p></li>
+<li><p><strong>command</strong> (<em>str</em>) – Command to be executed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Response of the executed command.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AOS_response</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Positioning_update</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Positioning_update</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RSSI_function module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RSSI_retrieve.html">RSSI_retrieve module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">Positioning_update</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">Positioning_update</a></li>
+      <li>Next: <a href="RSSI_retrieve.html" title="next chapter">RSSI_retrieve module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Nam.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/RSSI_function.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
