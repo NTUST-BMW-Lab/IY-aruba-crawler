@@ -1,7 +1,5 @@
 import pandas as pd 
 import requests
-from datetime import timedelta
-from datetime import datetime, timedelta
 import warnings
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -24,7 +22,7 @@ def calculate_taiwan_time():
         
     from datetime import timedelta
     from datetime import datetime, timedelta
-    # =============================================================================
+    
     # Add datetime (GMT +8)
     ts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z") #datetime (GMT)
     ts = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S.%fz")
