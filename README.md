@@ -38,6 +38,14 @@ RSSIIY
 
 ## A. Access to Data Center's MongoDB databases server
 
+### System architecture
+
+![image](https://github.com/NTUST-BMW-Lab/IY-aruba-crawler/assets/102983698/2313bbfb-6362-4d64-aa78-de3ce722e0cd)
+
+### Databases architecture
+
+![database](https://github.com/NTUST-BMW-Lab/IY-aruba-crawler/assets/102983698/137e26cc-dd80-4851-95e9-66aa7bea864d)
+
 ### Access to Data Center Window server
 
 - From Window, choose Remote Desktop Connection
