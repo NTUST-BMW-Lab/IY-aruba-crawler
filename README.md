@@ -18,6 +18,7 @@ RSSIIY
 |__ src
 |  |__ Controller4 # Crawling AP, User, and Radio data source code
 |  |__ Positioning # Indoor Positioning source code
+|  |__ Positioning_update # Indoor Positioning source code (including reference APs's RSSI)
 |__ data # Leave it blank
 |__ docs
 |  |__ (pydocs files)
