@@ -3,7 +3,13 @@
 To retrieve, process, and store WiFi data in MongoDB databases server in NTUST Data Center
 
 ## Requirement
+- Aruba Controller: Aruba-7210
+- Aruba AP: Aruba-315
+- Aruba OS: 8.6.0.16
+- Server: Window Server 2012 R2
 - MongoDB > 3.4.x
+- Grafana > 3.x.x
+- 
 ## Directory
 
 ```
