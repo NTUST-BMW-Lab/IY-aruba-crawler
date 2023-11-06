@@ -30,7 +30,7 @@ def main():
     vMM_aosip = os.getenv('vMM_aosip')
 
     # Building name
-    building = 'IY'
+    building = os.getenv('building')
 
     # Read the JSON file containing AP data
     with open('AP_dict', 'r') as file:
