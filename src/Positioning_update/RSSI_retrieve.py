@@ -38,8 +38,6 @@ def main():
 
     # Set RSSI threshold
     threshold = 60
-    # Max AP number per floor in the building. Take IY building as an example, max AP = 5.
-    max_ap_per_floor = 5
 
     # Get the token to access vMM information  -- via API
     token = RSSI_function.authentication(username, password, vMM_aosip)
@@ -49,9 +47,6 @@ def main():
 
     # Get AP list
     AP_name = RSSI_function.get_AP_name(ref_aps_dict_all)
-
-    # Get AP coordinates
-    AP_coords = RSSI_function.get_AP_coords(ref_aps_dict_all, max_ap_per_floor)
 
     # Get datetime
     ts, ts_tw_str, ts_tw = RSSI_function.calculate_taiwan_time()
